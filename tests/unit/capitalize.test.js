@@ -1,21 +1,29 @@
-import capitalize  from "../../src/capitalize";
+import capitalize from "../../src/capitalize"
 
 const lowerCase = "testing"
 const upperCase = "TESTING"
-const mixedCase =  "tEsTiNg"
+const mixedCase = "tEsTiNg"
 const number = 123
 
-describe("capitalize.js unit tests", () => {
+describe("capitalize.js", () => {
   test("should capitalize the first letter", () => {
-    expect(capitalize(lowerCase)).toBe("Testing");
+    expect(capitalize(lowerCase))
+    .toBe("Testing")
+    .toBeString()
   });
   test("should capitalize the first letter and rest lowercase", () => {
-    expect(capitalize(upperCase)).toBe("Testing");
+    expect(capitalize(upperCase))
+    .toBe("Testing")
+    .toBeString()
   });
   test("should capitalize the first letter and rest lowercase", () => {
-    expect(capitalize(mixedCase)).toBe("Testing");
+    expect(capitalize(mixedCase))
+    .toBeString()
+    .toBe("Testing")
   });
-  test("convert number to string", () => {
-    expect(capitalize(number)).toBe("123");
+  test("should convert number to string", () => {
+    expect(capitalize(number))
+    .toBe("123")
+    .toBeString()
   });
 });

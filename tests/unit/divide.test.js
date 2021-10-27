@@ -10,6 +10,7 @@ const divisor3 = 1;
 
 describe("divide.js unit tests", () => {
     test("-1/-1 should be 1", () => {
+        const result = divide(dividend1, divisor1)
         expect(divide.toBe(1));
     });
     test("-1/0 should not be possible", () => {

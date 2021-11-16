@@ -22,10 +22,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install   
-    - run: npm run test:coverage
-      continue-on-error: true
-    - name: Coveralls
+
+    - name: Install dependecies
+      run: npm install
+
+    - name: Run tests
+      run: npm run test:coverage
+
+    - name: Report test coverage
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+      if: always()

@@ -43,12 +43,12 @@ describe('add.js pairWise tests', () => {
 // tests with something other than numbers as parameters
 describe('add.js bad input tests', () => {
   test('bad input as first parameter should throw error', () => {
-    expect(add(badInput, second1)).toThrow()
+    expect(add(badInput, second1)).toThrowError()
   })
   test('bad input as second parameter should throw error', () => {
-    expect(add(first1, badInput)).toThrow()
+    expect(add(first1, badInput)).toThrowError()
   })
   test('both parameters as bad input hould throw error', () => {
-    expect(add(badInput, badInput)).toThrow()
+    expect(add(badInput, badInput)).toThrowError()
   })
 })

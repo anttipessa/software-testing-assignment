@@ -4,6 +4,7 @@ const lowerCase = "testing"
 const upperCase = "TESTING"
 const mixedCase = "tEsTiNg"
 const number = 123
+const object = {testdata: "test"}
 
 describe("capitalize.js", () => {
   test("should capitalize the first letter", () => {
@@ -18,4 +19,7 @@ describe("capitalize.js", () => {
   test("should convert number to string", () => {
     expect(capitalize(number)).toBe("123")
   });
+  test("should convert object to string", () => {
+    expect(capitalize(object)).toBe('{testdata: "test"}')
+  })
 });

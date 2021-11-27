@@ -59,4 +59,3 @@ describe("divide.js bad input tests", () => {
     expect(divide(badInput, badInput)).toThrow();
   });
 });
-

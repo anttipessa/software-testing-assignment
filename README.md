@@ -1,5 +1,5 @@
 # Software testing assignment
-
+[![Coverage Status](https://coveralls.io/repos/github/anttipessa/software-testing-assignment/badge.svg?branch=main)](https://coveralls.io/github/anttipessa/software-testing-assignment?branch=main) [![Test CI](https://github.com/anttipessa/software-testing-assignment/actions/workflows/test.yml/badge.svg)](https://github.com/anttipessa/software-testing-assignment/actions/workflows/test.yml)
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

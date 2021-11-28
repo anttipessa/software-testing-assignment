@@ -28,5 +28,6 @@ describe("toString.js", () => {
   test("should convert object to string", () => {
     const result = toString({ test: 1 });
     expect(result).toBeString();
+    expect(result).toBe('{test:1}') // returns "[object Object]" instead
   });
 });

@@ -13,7 +13,7 @@ describe("filter.js", () => {
     expect(filter(testArray1, ({ liar }) => liar)).toStrictEqual(resultArray1),
     expect(filter(testArray1, ({ liar }) => !liar)).toStrictEqual(resultArray2)
   })
-  test("should return an array without specified names", () => {
+  test("should return an array without specified names", () => {  // returns [] instead
     expect(filter(testArray1, ({ name }) => Object.keys(name).includes('Mauri'))).toStrictEqual(resultArray2)
   })
 })

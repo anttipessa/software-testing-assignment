@@ -7,6 +7,7 @@ const int = 1
 // bad inputs
 const object = {'name' : 'barney'}
 const array = [1, 2, 3, 'fred', 5]
+const testFunctionSquare = (n) => (n*n)
 
 describe("toNumber.js", () => {
   test("should convert string to int", () => {
@@ -21,14 +22,31 @@ describe("toNumber.js", () => {
     expect(toNumber(int)).toBe(1)
     expect(typeof toNumber(int)).toBe("number")
   })
+  test("using a number function as parameter should return a number", () => {
+    expect(toNumber(testFunctionSquare(2))).toBeNumber()
+    expect(toNumber(testFunctionSquare(2))).toBe(4)
+  })
+  test("using 0/0 as parameter should return NaN", () => {
+    expect(toNumber(0/0)).toBeNumber()
+    expect(toNumber(0/0)).toBe(NaN) // 0/0 is both a number and Not a Number (NaN)
+  })
 
   // bad input tests
-  test("bad input should throw error", () => {
+  test("bad input should throw error", () => { 
     expect(() => 
-      toNumber(object)).toThrowError()
+      toNumber(object)).toThrowError() // returns NaN instead of throwing error
   })
   test("bad input should throw error", () => {
     expect(() => 
-      toNumber(array)).toThrowError()
+      toNumber(array)).toThrowError() // returns NaN instead of throwing error
   })
+  test("bad input should throw error", () => {
+    expect(() => 
+      toNumber(null)).toThrowError() // returns 0 instead of throwing error
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      toNumber(undefined)).toThrowError() // returns NaN instead of throwing error
+  })
+  console.log(toNumber(null), toNumber(undefined))
 })

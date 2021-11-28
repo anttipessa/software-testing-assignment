@@ -21,6 +21,10 @@ describe("words.js", () => {
   test("test case 3", () => {
     expect(words(string2)).toStrictEqual(result3)
   })
+  
+  test("null as second parameter", () => {
+    expect(words(string2, null)).toStrictEqual([])
+  })
 
   // tests with bad inputs
   test("should throw error", () => {
@@ -34,5 +38,13 @@ describe("words.js", () => {
   test("should throw error", () => {
     expect(() => 
       words(object)).toThrowError()
+  })
+  test("should throw error", () => {
+    expect(() => 
+      words(null)).toThrowError()
+  })
+  test("should throw error", () => {
+    expect(() => 
+      words(undefined)).toThrowError()
   })
 })

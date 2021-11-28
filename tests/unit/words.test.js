@@ -24,12 +24,15 @@ describe("words.js", () => {
 
   // tests with bad inputs
   test("should throw error", () => {
-    expect(words(int)).toThrowError()
+    expect(() => 
+      words(int)).toThrowError()
   })
   test("should throw error", () => {
-    expect(words(bool)).toThrowError()
+    expect(() => 
+      words(bool)).toThrowError()
   })
   test("should throw error", () => {
-    expect(words(object)).toThrowError()
+    expect(() => 
+      words(object)).toThrowError()
   })
 })

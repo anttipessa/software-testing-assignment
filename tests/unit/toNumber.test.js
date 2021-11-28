@@ -24,9 +24,11 @@ describe("toNumber.js", () => {
 
   // bad input tests
   test("bad input should throw error", () => {
-    expect(toNumber(object)).toThrowError()
+    expect(() => 
+      toNumber(object)).toThrowError()
   })
   test("bad input should throw error", () => {
-    expect(toNumber(array)).toThrowError()
+    expect(() => 
+      toNumber(array)).toThrowError()
   })
 })

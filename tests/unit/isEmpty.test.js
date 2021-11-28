@@ -4,7 +4,7 @@ const string = 'jeejee'
 const int = 1
 const array = [1, 2, 3, 4, 5]
 const array2 = [1]
-const object = {'name' : 'Mauri'}
+const object = {name : 'Mauri'}
 const object2 = [{'name' : 'Mauri'}, {'liar' : true}]
 const bool = true
 const bool2 = false
@@ -12,6 +12,7 @@ const nullInput = null
 const nanInput = NaN
 const inf = Infinity
 const negInf = -Infinity
+const testFunctionSquare = (n) => (n*n)
 
 describe("isEmpty.js", () => {
   test("should not be empty", () => {
@@ -49,5 +50,10 @@ describe("isEmpty.js", () => {
   })
   test("should be empty", () => {
     expect(isEmpty(negInf)).toBe(true)
+  })
+
+  // passing a function should throw error
+  test("passing a function should not work", () => {
+    expect(() => isEmpty(testFunctionSquare(2))).toThrowError() // returns true instead of throwing error
   })
 })

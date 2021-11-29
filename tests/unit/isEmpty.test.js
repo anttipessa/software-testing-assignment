@@ -48,7 +48,7 @@ describe("isEmpty.js", () => {
     expect(isEmpty(nullInput)).toBe(true) // javascript's own version of isEmpty would return false here
   })
   test("should be empty", () => {
-    expect(isEmpty(nullArray)).toBe(true) // javascript's own version of isEmpty would return false here
+    expect(isEmpty(nullArray)).toBe(true) 
   })
   test("should be empty", () => {
     expect(isEmpty(nanInput)).toBe(true)

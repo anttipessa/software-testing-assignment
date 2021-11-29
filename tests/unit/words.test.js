@@ -20,7 +20,7 @@ describe("words.js", () => {
   test("null as second parameter", () => {
     expect(words(string2, null)).toStrictEqual([])
   })
-  test("null as second parameter", () => {
+  test("undefined as second parameter", () => {
     expect(words(string2, undefined)).toStrictEqual(result3)
   })
 

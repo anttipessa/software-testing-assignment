@@ -56,5 +56,12 @@ describe("toNumber.js", () => {
     expect(() => 
       toNumber(undefined)).toThrowError() // returns NaN instead of throwing error
   })
-  console.log(toNumber(null), toNumber(undefined))
+  test("bad input should throw error", () => {
+    expect(() => 
+      toNumber(/[^, ]+/g)).toThrowError() // returns NaN instead of throwing error
+  })
+  test("no input should throw error", () => {
+    expect(() => 
+      toNumber()).toThrowError() // returns NaN instead of throwing error
+  })
 })

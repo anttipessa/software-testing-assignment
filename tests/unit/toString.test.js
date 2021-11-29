@@ -30,4 +30,14 @@ describe("toString.js", () => {
     expect(result).toBeString();
     expect(result).toBe('{test:1}') // returns "[object Object]" instead
   });
+
+  // bad inputs
+  test("no parameters given should throw error", () => {
+    const result = toString();
+    expect(() => result).toThrowError(); // returns undefined instead
+  });
+  test("bad input should throw error", () => {
+    expect(() => 
+      toString(/[^, ]+/g)).toThrowError(); // returns a string of the regex instead
+  })
 });

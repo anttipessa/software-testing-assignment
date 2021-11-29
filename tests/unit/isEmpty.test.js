@@ -60,6 +60,15 @@ describe("isEmpty.js", () => {
     expect(isEmpty(negInf)).toBe(true)
   })
 
+  test("Empty symbol should be empty", () => {
+    expect(isEmpty(Symbol(""))).toBe(true)
+  })
+
+  test("Symbol with content should not be empty", () => {
+    expect(isEmpty(Symbol("test"))).toBe(false)
+  })
+
+
   // passing a function should throw error
   test("passing a function should not work", () => {
     expect(() => isEmpty(testFunctionSquare(2))).toThrowError() // returns true instead of throwing error

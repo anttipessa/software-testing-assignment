@@ -5,6 +5,8 @@ import divide from '../../src/divide'
 import toNumber from '../../src/toNumber'
 import filter from '../../src/filter'
 import isEmpty from '../../src/isEmpty'
+import toString from '../../src/toString'
+import reduce from '../../src/reduce'
 
 const testArr = ["hei", "olen", "testaustaulukko"]
 const testArr2 = [1, 3, 3, 2, 5]
@@ -42,8 +44,17 @@ describe("Integration tests on arrays utilizing differing functions", () => {
   test("should remove 'abc' and [3, 4, 6] from array", () => {
     expect(filter(testArr5, isEmpty)).toStrictEqual(resultArr5)
   })
-  test("should return '1,null,32'", () => {
-    expect(toString(filter(testArr5, isEmpty))).toBe('1,null,32') // returns "[object Undefined]" instead
+  test("should return '1,,32'", () => {
+    expect(toString(filter(testArr5, isEmpty))).toBe('1,,32')
   })
-
+  
+  test("filter->reduce->map", () => {
+    const arr = [1, 2, 3, 4, 5, "word"]
+    const mapArr = [5, 10]
+    const filtered = filter(arr, (e => typeof e === 'number' && e))
+    expect(filtered).toStrictEqual([1, 2, 3, 4, 5])
+    const reduced = reduce(filtered, (sum, n) => sum + n, 0)
+    expect(reduced).toBe(15)
+    expect(map(mapArr, (n) => n * reduced)).toStrictEqual([75, 150])
+  })
 })

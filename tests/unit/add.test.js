@@ -40,15 +40,42 @@ describe('add.js pairWise tests', () => {
   })
 })
 
+// tests with number-like parameters
+describe("add.js additional tests", () => {
+  test("infinity + 1 should be infinity", () => {
+    expect(add(1, Infinity)).toBe(Infinity)
+  })
+  test("infinity + infinity should be infinity", () => {
+    expect(add(Infinity, Infinity)).toBe(Infinity)
+  })
+})
+
+
 // tests with something other than numbers as parameters
 describe('add.js bad input tests', () => {
-  test('bad input as first parameter should throw error', () => {
-    expect(add(badInput, second1)).toThrow()
+  test("bad input should throw error", () => {
+    expect(() => 
+      add(badInput, second1)).toThrowError() //returns a string instead
   })
-  test('bad input as second parameter should throw error', () => {
-    expect(add(first1, badInput)).toThrow()
+  test("bad input should throw error", () => {
+    expect(() => 
+      add(first1, badInput)).toThrowError() //returns a string instead
   })
-  test('both parameters as bad input hould throw error', () => {
-    expect(add(badInput, badInput)).toThrow()
+  test("bad input should throw error", () => {
+    expect(() => 
+      add(badInput, badInput)).toThrowError() //returns a string instead
   })
+  test("too few parameters should throw error", () => {
+    expect(() =>
+      add(first1)).toThrowError() //returns the only parameter instead
+  })
+  test("null as a parameter should throw error", () => {
+    expect(() =>
+      add(first1, null)).toThrowError() //returns the only good parameter instead
+  })
+  test("undefined as a parameter should throw error", () => {
+    expect(() =>
+      add(first1, undefined)).toThrowError() //returns the only good parameter instead
+  })
+  console.log(add(first1, undefined), add(first1, null))
 })

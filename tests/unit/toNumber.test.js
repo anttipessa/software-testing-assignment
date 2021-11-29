@@ -30,6 +30,14 @@ describe("toNumber.js", () => {
     expect(toNumber(0/0)).toBeNumber()
     expect(toNumber(0/0)).toBe(NaN) // 0/0 is both a number and Not a Number (NaN)
   })
+  test("using Number.MIN_VALUE should return 5e-324", () => {
+    expect(toNumber(Number.MIN_VALUE)).toBeNumber()
+    expect(toNumber(Number.MIN_VALUE)).toBe(5e-324)
+  })
+  test("using infinity should return infinity", () => {
+    expect(toNumber(Infinity)).toBeNumber()
+    expect(toNumber(Infinity)).toBe(Infinity)
+  })
 
   // bad input tests
   test("bad input should throw error", () => { 

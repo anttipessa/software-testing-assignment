@@ -40,6 +40,17 @@ describe('add.js pairWise tests', () => {
   })
 })
 
+// tests with number-like parameters
+describe("add.js additional tests", () => {
+  test("infinity + 1 should be infinity", () => {
+    expect(add(1, Infinity)).toBe(Infinity)
+  })
+  test("infinity + infinity should be infinity", () => {
+    expect(add(Infinity, Infinity)).toBe(Infinity)
+  })
+})
+
+
 // tests with something other than numbers as parameters
 describe('add.js bad input tests', () => {
   test("bad input should throw error", () => {

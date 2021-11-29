@@ -14,4 +14,26 @@ describe("reduce.js", () => {
        return result
       }, {})).toStrictEqual({'1': ['a', 'c'], '2': ['b']})
   })
+
+  // bad inputs
+  test("bad input should throw error", () => {
+    expect(() => 
+      reduce(null, null, null)).toThrowError() // returns null instead
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      reduce([0, 1, 2], null, null)).toThrowError() // throws TypeError
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      reduce(null, (div, n) => div / n, null)).toThrowError() // returns null instead
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      reduce(null, null)).toThrowError() // returns undefined instead
+  })
+  test("too few parameters should throw error", () => {
+    expect(() => 
+      reduce([2, 3, 5])).toThrowError() // throws TypeError
+  })
 })

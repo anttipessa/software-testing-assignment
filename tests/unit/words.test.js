@@ -6,11 +6,6 @@ const result = ['fred', 'barney', 'pebbles']
 const result2 = ['fred', 'barney', '&', 'pebbles']
 const result3 = ['ä', 'ö', 'ää', 'aa', 'öö']
 
-// bad inputs
-const int = 1
-const bool = true
-const object = {'name' : 'fred'}
-
 describe("words.js", () => {
   test("test case 1", () => {
     expect(words(string)).toStrictEqual(result)
@@ -32,15 +27,15 @@ describe("words.js", () => {
   // tests with bad inputs
   test("should throw error", () => {
     expect(() => 
-      words(int)).toThrowError()
+      words(1)).toThrowError()
   })
   test("should throw error", () => {
     expect(() => 
-      words(bool)).toThrowError()
+      words(true)).toThrowError()
   })
   test("should throw error", () => {
     expect(() => 
-      words(object)).toThrowError()
+      words({name: 'fred'})).toThrowError()
   })
   test("should throw error", () => {
     expect(() => 

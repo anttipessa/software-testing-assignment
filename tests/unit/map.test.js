@@ -21,4 +21,22 @@ describe("map.js", () => {
   test("empty array should stay empty", () => {
     expect(map(emptyArr, testFunctionSquare)).toStrictEqual(emptyArr)
   })
+
+  // bad inputs
+  test("bad input should throw error", () => {
+    expect(() => 
+      map(null, null)).toThrowError() // returns [] instead
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      map(testArr1, null)).toThrowError() // throws TypeError
+  })
+  test("bad input should throw error", () => {
+    expect(() => 
+      map(null, testFunctionSquare)).toThrowError() // throws TypeError
+  })
+  test("wrong number of parameters should throw error", () => {
+    expect(() => 
+      map(testFunctionSquare)).toThrowError() // returns [] instead
+  })
 })

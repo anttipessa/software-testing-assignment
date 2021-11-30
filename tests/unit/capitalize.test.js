@@ -7,6 +7,7 @@ const number = 123
 const sentence = "i am a sentence!"
 const twoSentences = "i am a sentence! so am I!"
 const twoSentences2 = "i am a sentence. so am I."
+const twoSentences3 = "am I a sentence? i think i am."
 
 // bad inputs
 const object = {testdata: "test"}
@@ -35,6 +36,9 @@ describe("capitalize.js", () => {
   })
   test("should capitalize the first letter of both sentences", () => {
     expect(capitalize(twoSentences2)).toBe("I am a sentence. So am I.")
+  })
+  test("should capitalize the first letter of both sentences", () => {
+    expect(capitalize(twoSentences3)).toBe("Am I a sentence? I think i am.")
   })
   
 

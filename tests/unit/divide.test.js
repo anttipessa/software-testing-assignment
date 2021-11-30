@@ -26,7 +26,7 @@ describe("divide.js pairWise tests", () => {
   });
   test("0/0 should throw error", () => {
     expect(() => 
-      divide(dividend2, divisor2)).toThrowError();
+      divide(dividend2, divisor2)).toThrowError(); // returns NaN instead
   });
   test("0/1 should be 0", () => {
     const result = divide(dividend2, divisor3)

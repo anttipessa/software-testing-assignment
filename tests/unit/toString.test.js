@@ -6,12 +6,12 @@ describe("toString.js", () => {
     expect(result).toBeString();
     expect(result).toBe("0");
   });
-  test("should convert null to empty string", () => {
+  test("should convert null to empty string", () => { // returns "null" instead
     const result = toString(null);
     expect(result).toBeString();
     expect(result).toBe("");
   });
-  test("should convert undefined to empty string", () => {
+  test("should convert undefined to empty string", () => { // returns "undefined" instead
     const result = toString(undefined);
     expect(result).toBeString();
     expect(result).toBe("");

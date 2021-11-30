@@ -1,6 +1,8 @@
 import toNumber from '../../src/toNumber'
 import add from '../../src/add'
 import divide from '../../src/divide'
+import toString from '../../src/toString'
+
 
 describe("integration tests on numbers using chained functions", () => {
   test("test case 1: add + toNumber", () => {
@@ -16,10 +18,10 @@ describe("integration tests on numbers using chained functions", () => {
   })
   // adding toString in front of everything seems to break it
   test("test case 2: add + toNumber + divide", () => { 
-    expect(toString(divide(6, add(toNumber("2"), toNumber(4))))).toBe('1') // returns "[object Undefined]" instead
+    expect(toString(divide(6, add(toNumber("2"), toNumber(4))))).toBe('1')
   })
   test("test case 3: a chain of toString and toNumber", () => {
     expect(toString(toNumber('3'))).toBeString()
-    expect(toString(toNumber('3'))).toBe('3') // returns "[object Undefined]" instead
+    expect(toString(toNumber('3'))).toBe('3')
   })
 })

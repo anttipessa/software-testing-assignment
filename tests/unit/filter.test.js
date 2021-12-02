@@ -24,6 +24,16 @@ describe("filter.js", () => {
   test("should return array without smaller numbers than 10", () => {
     expect(filter(testArray2, testFunction)).toStrictEqual(resultArray3) 
   })
+  test("should filter out all bananas", () => {
+    const products = ["banana", "banana", "apple", "strawberry", "banana", "orange"]
+    const result = ["apple", "strawberry", "orange"]
+    expect(filter(products, (n) => n != "banana")).toStrictEqual(result) 
+  })
+  test("should return with empty array", () => {
+    const products = ["banana", "banana", "apple", "strawberry", "banana", "orange"]
+    const result = [[]]
+    expect(filter(products, (n) => n == null)).toStrictEqual(result) 
+  })
 
   // bad inputs
   test("bad input should should throw error", () => {

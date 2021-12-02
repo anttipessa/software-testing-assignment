@@ -39,10 +39,6 @@ describe("toNumber.js", () => {
     expect(toNumber(Infinity)).toBe(Infinity)
   })
 
-  test("using symbol should give NAN", () => {
-    expect(toNumber(Symbol("1"))).toBe(NAN)
-  })
-
   // bad input tests
   test("bad input should throw error", () => { 
     expect(() => 
@@ -67,5 +63,9 @@ describe("toNumber.js", () => {
   test("no input should throw error", () => {
     expect(() => 
       toNumber()).toThrowError() // returns NaN instead of throwing error
+  })
+  test("symbol input should throw error", () => {
+    expect(() => 
+      toNumber(Symbol("1"))).toThrowError() // returns NaN instead of throwing error
   })
 })

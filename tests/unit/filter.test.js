@@ -29,9 +29,12 @@ describe("filter.js", () => {
     const result = ["apple", "strawberry", "orange"]
     expect(filter(products, (n) => n != "banana")).toStrictEqual(result) 
   })
+
+  // returns [[]] when no matches, no mention in documentation
+  // empty array would be logical return value here
   test("should return with empty array", () => {
     const products = ["banana", "banana", "apple", "strawberry", "banana", "orange"]
-    const result = [[]]
+    const result = []
     expect(filter(products, (n) => n == null)).toStrictEqual(result) 
   })
 

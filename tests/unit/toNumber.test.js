@@ -39,6 +39,10 @@ describe("toNumber.js", () => {
     expect(toNumber(Infinity)).toBe(Infinity)
   })
 
+  test("using symbol should give NAN", () => {
+    expect(toNumber(Symbol("1"))).toBe(NAN)
+  })
+
   // bad input tests
   test("bad input should throw error", () => { 
     expect(() => 

@@ -2,9 +2,9 @@ import toString from "../../src/toString";
 
 describe("toString.js", () => {
   test("should convert number to string", () => {
-    const result = toString(0);
+    const result = toString(-0);
     expect(result).toBeString();
-    expect(result).toBe("0");
+    expect(result).toBe("-0");
   });
   test("should convert null to empty string", () => { // returns "null" instead
     const result = toString(null);
@@ -21,6 +21,11 @@ describe("toString.js", () => {
     expect(result).toBeString();
     expect(result).toBe("1,2,3");
   });
+  test("should convert array of numbers and null to string", () => {
+    const result = toString([1, null, 3]);
+    expect(result).toBeString();
+    expect(result).toBe("1,,3");
+  });
   test("should convert Date object to string", () => {
     const result = toString(new Date());
     expect(result).toBeString();
@@ -29,6 +34,11 @@ describe("toString.js", () => {
     const result = toString({ test: 1 });
     expect(result).toBeString();
     expect(result).toBe('{test:1}') // returns "[object Object]" instead
+  });
+
+  test("should convert Symbol to string", () => {
+    const result = toString(Symbol('test'));
+    expect(result).toBeString();
   });
 
   // bad inputs

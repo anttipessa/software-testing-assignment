@@ -16,7 +16,6 @@ describe("integration tests on numbers using chained functions", () => {
   test("test case 2: add + toNumber + divide", () => { 
     expect(divide(6, add(toNumber("2"), toNumber(4)))).toBe(1)
   })
-  // adding toString in front of everything seems to break it
   test("test case 2: add + toNumber + divide", () => { 
     expect(toString(divide(6, add(toNumber("2"), toNumber(4))))).toBe('1')
   })

@@ -8,6 +8,8 @@ import isEmpty from '../../src/isEmpty'
 import toString from '../../src/toString'
 import reduce from '../../src/reduce'
 
+import products from '../mock/products'
+
 const testArr = ["hei", "olen", "testaustaulukko"]
 const testArr2 = [1, 3, 3, 2, 5]
 const testArr3 = [1, "2", 3, 3.2, "123341", "4.12309"]
@@ -47,7 +49,7 @@ describe("Integration tests on arrays utilizing differing functions", () => {
   test("should return '1,,32'", () => {
     expect(toString(filter(testArr5, isEmpty))).toBe('1,,32')
   })
-  
+
   test("filter->reduce->map", () => {
     const arr = [1, 2, 3, 4, 5, "word"]
     const mapArr = [5, 10]
@@ -56,5 +58,17 @@ describe("Integration tests on arrays utilizing differing functions", () => {
     const reduced = reduce(filtered, (sum, n) => sum + n, 0)
     expect(reduced).toBe(15)
     expect(map(mapArr, (n) => n * reduced)).toStrictEqual([75, 150])
+  })
+  test("filter->isEmpty", () => {
+    const arr = [1, 2, 3, 4, 5, "word"]
+    const filtered = filter(arr, (e => typeof e === 'null' && e))
+    expect(isEmpty(filtered)).toBe(true)
+  })
+
+  test("mock data demo", () => {
+    const pro = products;
+    for ( let p of pro){
+      console.log(p.name)
+    }
   })
 })

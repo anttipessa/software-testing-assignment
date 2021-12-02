@@ -64,4 +64,8 @@ describe("toNumber.js", () => {
     expect(() => 
       toNumber()).toThrowError() // returns NaN instead of throwing error
   })
+  test("symbol input should throw error", () => {
+    expect(() => 
+      toNumber(Symbol("1"))).toThrowError() // returns NaN instead of throwing error
+  })
 })

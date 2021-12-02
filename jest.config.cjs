@@ -2,7 +2,7 @@ module.exports = {
   testEnvironment: "node",
   verbose: true,
   setupFilesAfterEnv: ["jest-extended/all"],
-  coveragePathIgnorePatterns: ["src/.internal"],
+  coveragePathIgnorePatterns: ["src/.internal", "tests/mock"],
   collectCoverageFrom: [
     "src/add.js",
     "src/capitalize.js",

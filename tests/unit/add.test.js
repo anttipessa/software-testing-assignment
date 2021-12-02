@@ -9,6 +9,8 @@ const second3 = 1
 
 const badInput = 'I am not a number'
 
+describe('add.js', () => {
+
 //pairWise tests
 describe('add.js pairWise tests', () => {
   test('-1 + -1 should be -2', () => {
@@ -78,4 +80,6 @@ describe('add.js bad input tests', () => {
       add(first1, undefined)).toThrowError() //returns the only good parameter instead
   })
   console.log(add(first1, undefined), add(first1, null))
+})
+
 })

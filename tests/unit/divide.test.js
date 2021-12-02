@@ -10,6 +10,8 @@ const divisor3 = 1;
 
 const badInput = 'I am not a number'
 
+describe("divide.js", () => {
+  
 // pairwise tests
 describe("divide.js pairWise tests", () => {
   test("-1/-1 should be 1", () => {
@@ -64,4 +66,6 @@ describe("divide.js bad input tests", () => {
     expect(() => 
       divide(badInput, badInput)).toThrowError();
   });
+});
+
 });

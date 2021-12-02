@@ -4,25 +4,24 @@ const testArray1 = [
   {name: 'Mauri', 'liar': true},
   {name: 'Lauri', 'liar': false}
 ]
-const testArray2 = [1, 2, 3, 4, 5, 16, 17, 18, 19, 20]
-
-const resultArray1 = [{name: 'Mauri', 'liar': true}]
-const resultArray2 = [{name: 'Lauri', 'liar': false}]
-const resultArray3 = [16, 17, 18, 19, 20]
 
 const testFunction = (n) => n >= 10
-const testFunction2 = (n) => n.name === 'Mauri'
 
 describe("filter.js", () => {
   test("should return an array without specified booleans", () => {
-    expect(filter(testArray1, ({ liar }) => liar)).toStrictEqual(resultArray1),
-    expect(filter(testArray1, ({ liar }) => !liar)).toStrictEqual(resultArray2)
+    const result1 = [{name: 'Mauri', 'liar': true}]
+    const result2 = [{name: 'Lauri', 'liar': false}]
+    expect(filter(testArray1, ({ liar }) => liar)).toStrictEqual(result1),
+    expect(filter(testArray1, ({ liar }) => !liar)).toStrictEqual(result2)
   })
   test("should return an array without specified names", () => {
-    expect(filter(testArray1, testFunction2)).toStrictEqual(resultArray1)
+    const result = [{name: 'Mauri', 'liar': true}]
+    expect(filter(testArray1, (n) => n.name === 'Mauri')).toStrictEqual(result)
   })
-  test("should return array without smaller numbers than 10", () => {
-    expect(filter(testArray2, testFunction)).toStrictEqual(resultArray3) 
+  test("should return an array without numbers smaller than 10", () => {
+    const arr = [1, 2, 3, 4, 5, 16, 17, 18, 19, 20]
+    const result = [16, 17, 18, 19, 20]
+    expect(filter(arr, testFunction)).toStrictEqual(result) 
   })
   test("should filter out all bananas", () => {
     const products = ["banana", "banana", "apple", "strawberry", "banana", "orange"]

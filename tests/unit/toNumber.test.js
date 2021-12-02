@@ -1,28 +1,23 @@
 import toNumber from "../../src/toNumber";
 
-const string = '1000'
-const float = 3.14
-const int = 1
-
-// bad inputs
-const object = {'name' : 'barney'}
-const array = [1, 2, 3, 'fred', 5]
-const testFunctionSquare = (n) => (n*n)
-
 describe("toNumber.js", () => {
-  test("should convert string to int", () => {
+  test("should convert string to number", () => {
+    const string = '1000'
     expect(toNumber(string)).toBe(1000)
     expect(typeof toNumber(string)).toBe("number")
   })
   test("should keep float as a number", () => {
+    const float = 3.14
     expect(toNumber(float)).toBe(3.14)
     expect(typeof toNumber(float)).toBe("number")
   })
   test("should keep int as number", () => {
+    const int = 1
     expect(toNumber(int)).toBe(1)
     expect(typeof toNumber(int)).toBe("number")
   })
   test("using a number function as parameter should return a number", () => {
+    const testFunctionSquare = (n) => (n*n)
     expect(toNumber(testFunctionSquare(2))).toBeNumber()
     expect(toNumber(testFunctionSquare(2))).toBe(4)
   })
@@ -42,11 +37,11 @@ describe("toNumber.js", () => {
   // bad input tests
   test("bad input should throw error", () => { 
     expect(() => 
-      toNumber(object)).toThrowError() // returns NaN instead of throwing error
+      toNumber({'name' : 'barney'})).toThrowError() // returns NaN instead of throwing error
   })
   test("bad input should throw error", () => {
     expect(() => 
-      toNumber(array)).toThrowError() // returns NaN instead of throwing error
+      toNumber([1, 2, 3, 'fred', 5])).toThrowError() // returns NaN instead of throwing error
   })
   test("bad input should throw error", () => {
     expect(() => 

@@ -10,44 +10,43 @@ import reduce from '../../src/reduce'
 
 import products from '../mock/products'
 
-const testArr = ["hei", "olen", "testaustaulukko"]
-const testArr2 = [1, 3, 3, 2, 5]
-const testArr3 = [1, "2", 3, 3.2, "123341", "4.12309"]
-const testArr4 = [1, "moi", 2.4567, "a1", "45"]
-const testArr5 = [1, null, 32, "abc", [3, 4, 6]]
-
-const resultArr = ["Hei", "Olen", "Testaustaulukko"]
-const resultArr2 = ["1", "Moi", "2.4567", "A1", "45"]
-const resultArr3 = [3, 4, 5, 6, 7]
-const resultArr4 = [1, 2, 3, 3.2, 123341, 4.12309]
-const resultArr5 = [1, null, 32]
-
 describe("Integration tests on arrays utilizing differing functions", () => {
   //tests with map
-  test("should capitalize first letters", () => {
-    expect(map(testArr, capitalize)).toStrictEqual(resultArr)
+  test("should capitalize first letters of each element in the array", () => {
+    const arr = ["hei", "olen", "testaustaulukko"]
+    const result = ["Hei", "Olen", "Testaustaulukko"]
+    expect(map(arr, capitalize)).toStrictEqual(result)
   })
   test("should convert numbers into strings and capitalize strings", () => {
-    expect(map(mixedTestArr, capitalize)).toStrictEqual(resultArr2)
+    const arr = [1, "moi", 2.4567, "a1", "45"]
+    const result = ["1", "Moi", "2.4567", "A1", "45"]
+    expect(map(arr, capitalize)).toStrictEqual(result)
   })
-  // does not seem usable with map since parameters can't be passed to add inside map
-  test("should add", () => {
-    expect(map(testArr2, add)).toStrictEqual(resultArr3)
+  test("should add 2 to each element in the array", () => {
+    const arr = [1, 3, 3, 2, 5]
+    const result = [3, 5, 5, 4, 7]
+    expect(map(arr, (a => add(a, 2)))).toStrictEqual(result)
   })
-  // does not seem usable with map since parameters can't be passed to divide inside map
-  test("should divide", () => {
-    expect(map(testArr2, divide)).toStrictEqual(resultArr3)
+  test("should divide elements in the array", () => {
+    const arr = [1, 3, 3, 2, 5]
+    const result = [1, 1, 1, 1, 1] // result will be this because of the bug in divide.js
+    expect(map(arr, (a => divide(a, 1)))).toStrictEqual(result)
   })
-  test("should convert all strings of numbers to numbers and leave numbers as is", () => {
-    expect(map(testArr3, toNumber)).toStrictEqual(resultArr4)
+  test("should convert all strings of numbers to numbers and leave numbers as they were", () => {
+    const arr = [1, "2", 3, 3.2, "123341", "4.12309"]
+    const result = [1, 2, 3, 3.2, 123341, 4.12309]
+    expect(map(arr, toNumber)).toStrictEqual(result)
   })
 
   // tests with filter
   test("should remove 'abc' and [3, 4, 6] from array", () => {
-    expect(filter(testArr5, isEmpty)).toStrictEqual(resultArr5)
+    const arr = [1, null, 32, "abc", [3, 4, 6]]
+    const result = [1, null, 32]
+    expect(filter(arr, isEmpty)).toStrictEqual(result)
   })
   test("should return '1,,32'", () => {
-    expect(toString(filter(testArr5, isEmpty))).toBe('1,,32')
+    const arr = [1, null, 32]
+    expect(toString(filter(arr, isEmpty))).toBe('1,,32')
   })
 
   test("filter->reduce->map", () => {

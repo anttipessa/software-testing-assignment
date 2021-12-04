@@ -61,13 +61,14 @@ describe("Integration tests on arrays utilizing differing functions", () => {
   test("filter->isEmpty", () => {
     const arr = [1, 2, 3, 4, 5, "word"]
     const filtered = filter(arr, (e => typeof e === 'null' && e))
-    expect(isEmpty(filtered)).toBe(true)
+    console.log(filtered)
+    expect(isEmpty(filtered)).toBe(true) // returns [ [] ] which is not empty
   })
 
-  test("mock data demo", () => {
+   test("mock data demo", () => {
     const pro = products;
     for ( let p of pro){
       console.log(p.name)
     }
-  })
+  }) 
 })

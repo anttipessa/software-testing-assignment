@@ -9,6 +9,7 @@ import toString from '../../src/toString'
 import reduce from '../../src/reduce'
 
 import products from '../mock/products'
+import users from '../mock/users'
 
 describe("Integration tests on arrays utilizing differing functions", () => {
   //tests with map
@@ -63,11 +64,14 @@ describe("Integration tests on arrays utilizing differing functions", () => {
     const filtered = filter(arr, (e => typeof e === 'null' && e))
     expect(isEmpty(filtered)).toBe(true) // returns [ [] ] which is not empty
   })
-
-  test("mock data demo", () => {
-    const pro = products;
-    for ( let p of pro){
-      console.log(p.name)
-    }
-  }) 
+  test("search for a product by price", () => {
+    const filtered = filter(products, e => e.price >= 9.86)
+    expect(filtered.length).toBe(1)
+    expect(filtered[0].name).toBe("Juice - Apple Cider")
+  })
+  test("search for a user by name", () => {
+    const filtered = filter(users, e => e.first_name == "Yancy")
+    expect(filtered.length).toBe(1)
+    expect(filtered[0].first_name).toBe("Yancy")
+  })
 })

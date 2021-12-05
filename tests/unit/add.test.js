@@ -41,6 +41,13 @@ describe("add.js additional tests", () => {
   test("infinity + infinity should equal infinity", () => {
     expect(add(Infinity, Infinity)).toBe(Infinity)
   })
+  test("should handle float values", () => {
+    expect(add(0.91, 0.02)).toBe(0.93)
+  })
+  // Returns 1.9100000000000001
+  test("should handle mix of values", () => {
+    expect(add(0.91, 1)).toBe(1.91)
+  })
 })
 
 const badInput = 'I am not a number'
@@ -67,7 +74,6 @@ describe('add.js bad input tests', () => {
     expect(() =>
       add()).toThrowError() //returns 0
   })
-  console.log(add())
   test("null as a parameter should throw error", () => {
     expect(() =>
       add(-1, null)).toThrowError() //returns the only good parameter instead
